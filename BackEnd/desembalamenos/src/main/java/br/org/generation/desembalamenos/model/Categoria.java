@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -17,7 +18,7 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull(message = "O nome da categoria é obrigatório!")
+	@NotBlank(message = "O nome da categoria é obrigatório!")
 	@Size(min = 4, max = 255, message = "A categoria deve conter mais que 4 carácteres e menos que 255 carácteres.")
 	private String categoria;
 	
