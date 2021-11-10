@@ -26,7 +26,7 @@ import br.org.generation.desembalamenos.repository.CategoriaRepository;
 public class CategoriaController {
 
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private CategoriaRepository categoriaRepository; 
 	
 	@GetMapping
 	public ResponseEntity <List<Categoria>> getAll ()
