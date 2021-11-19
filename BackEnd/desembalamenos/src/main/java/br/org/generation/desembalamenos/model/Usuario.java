@@ -8,6 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
+
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -20,6 +22,7 @@ public class Usuario {
 	@NotBlank(message = "O nome do usuário não pode estar em branco")
 	private String nomeCompleto;
 	
+	@ApiModelProperty(example = "email@email.com.br")
 	@NotBlank(message = "o email do usuário não pode estar em branco")
 	@Size(min = 5, max = 100, message= "o email do usuário deve conter no minímo 5 caracteres e no maximo 100")
 	private String usuario;
