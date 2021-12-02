@@ -1,0 +1,29 @@
+.box1{
+    background-color: #FD811F;
+    height: 150px;
+    width: 100%;
+    
+}
+
+
+.box2{
+    background-color: #FFEAEA;
+    height: 60px; 
+
+}
+
+.redes-sociais{
+    font-size: 60px !important;
+    color: white!important;
+    margin-left: 10px;
+}
+
+.texto1{
+    color: white;
+    margin-right: 50px!important;
+}
+
+.texto2{
+    color: #375156;
+}
+

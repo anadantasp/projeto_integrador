@@ -1,0 +1,29 @@
+.imagem-cadastro {
+    background-image: url(https://cdn.pixabay.com/photo/2018/04/06/12/49/sustainability-3295757_960_720.jpg);
+    background-repeat: non-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    }
+    .padding-10{
+    padding: 20px;
+    }
+    
+    .btn-cancelar{
+    margin-right: 20px !important;
+    background-color: #8EACB6 !important;
+    /* color: #ffffff !important; */
+    }
+    
+    
+    .btn-cadastrar{
+    background-color: #8EACB6 !important;
+    /* color: #ffffff !important; */
+    }
+    
+    
+    .text-decoration{
+    text-decoration: none;
+    }
+    

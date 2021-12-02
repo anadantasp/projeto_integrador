@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './componentes/navbar/Navbar';
+import Footer from './componentes/footer/Footer';
+import Login from './paginas/login/Login';
+import Home from './paginas/home/Home'
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <div style={{ minHeight: '100vh' }}>
+
+          <Route path='/login'>
+            <Login />
+          </Route>
+
+          <Route path='/home'>
+            <Home />
+          </Route>
+
+          <Route path='/cadastrousuario'>
+            <CadastroUsuario />
+          </Route>
+        </div>
+      </Switch>
+      <Footer />
+    </Router >
+  
   );
 }
 
