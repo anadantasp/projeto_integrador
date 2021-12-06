@@ -2,15 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './componentes/navbar/Navbar';
 import Footer from './componentes/footer/Footer';
-import Login from './paginas/login/Login';
+import { } from '@material-ui/core';
 import Home from './paginas/home/Home'
+import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      
       <Switch>
         <div style={{ minHeight: '100vh' }}>
 
@@ -23,6 +24,7 @@ function App() {
           </Route>
 
           <Route path='/home'>
+          <Navbar />
             <Home />
           </Route>
 
