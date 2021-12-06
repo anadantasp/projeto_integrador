@@ -1,0 +1,15 @@
+background{
+    background-color:#c9e265 ;
+}
+
+.botao:hover {
+    color: #6a4018;
+    font-style: unset;
+}
+.variant{
+    color: #6a4018;
+    font-style: unset
+}
+.padding{
+    padding: 10px;
+}
