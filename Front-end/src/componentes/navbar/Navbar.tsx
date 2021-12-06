@@ -65,7 +65,7 @@ export function Navbar(){
             <Grid container direction='column' justifyContent='flex-start' alignItems='flex-start'>
                 <Grid item alignItems='center' xs={6}>
             <Box>
-        <AppBar position='fixed' className= {classes.appbarColor} >
+        <AppBar position='absolute' className= {classes.appbarColor} >
             <Toolbar variant='dense'  >
                 <Box display='flex' >
                 <Box> 
@@ -93,7 +93,7 @@ export function Navbar(){
         </Grid>
 
                 <Grid item alignItems='center' xs={6}>
-                    <AppBar className={classes.appbar}>
+                    <AppBar position='absolute' className={classes.appbar}>
                     <Toolbar variant='dense' className={classes.customizeToolbar} >
                         <Box display='flex' justifyContent='space-around'>
                             <div>

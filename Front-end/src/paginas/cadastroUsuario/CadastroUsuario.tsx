@@ -1,15 +1,67 @@
-import React from 'react'
+import React, {useState, useEffect, ChangeEvent} from "react";
 import './CadastroUsuario.css';
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import User from "../../models/User";
+import { cadastroUsuario } from "../../services/Service";
 
 function CadastroUsuario() {
+
+    let history = useHistory();
+    const [confirmarSenha,setConfirmarSenha] = useState<String>("")
+    const [user, setUser] = useState<User>(
+        {
+            id: 0,
+            nomeCompleto: '',
+            usuario: '',
+            senha: ''
+        })
+
+    const [userResult, setUserResult] = useState<User>(
+        {
+            id: 0,
+            nomeCompleto: '',
+            usuario: '',
+            senha: ''
+        })
+
+    useEffect(() => {
+        if (userResult.id != 0) {
+            history.push("/login")
+            
+        }
+    }, [userResult])
+
+
+    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
+        setConfirmarSenha(e.target.value)
+    }
+
+
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+
+    }
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+        if(confirmarSenha == user.senha){
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        alert('Usuario cadastrado com sucesso')
+        }else{
+            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+        }
+    }
+
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={6} className="imagem-cadastro"></Grid>
             <Grid item xs={6} alignItems="center">
                 <Box className='padding-10'>
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <Typography
                             variant="h3"
                             gutterBottom
@@ -20,16 +72,16 @@ function CadastroUsuario() {
                         >
                             Cadastre-se com seu e-mail
                         </Typography>
-                        <TextField
+                        <TextField value={user.nomeCompleto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             type="text"
-                            id="nome"
-                            label="Nome"
+                            id="nomeCompleto"
+                            label="nomeCompleto"
                             variant="outlined"
-                            name="nome"
+                            name="nomeCompleto"
                             margin="normal"
                             fullWidth
                         />
-                        <TextField
+                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             type="email"
                             id="usuario"
                             label="Usuario"
@@ -38,7 +90,7 @@ function CadastroUsuario() {
                             margin="normal"
                             fullWidth
                         />
-                        <TextField
+                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             type="password"
                             id="senha"
                             label="Senha"
@@ -47,7 +99,7 @@ function CadastroUsuario() {
                             margin="normal"
                             fullWidth
                         />
-                        <TextField
+                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
                             type="password"
                             id="conf-senha"
                             label="Confirmar Senha"
@@ -62,9 +114,11 @@ function CadastroUsuario() {
                                     Cancelar
                                 </Button>
                             </Link>
+                            <Link to="/login" className="text-decoration">
                             <Button type='submit' variant="contained" className='btn-cadastrar'>
                                 Cadastrar
                             </Button>
+                            </Link>
                         </Box>
                     </form>
                 </Box>
