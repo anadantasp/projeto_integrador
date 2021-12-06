@@ -38,11 +38,11 @@ const useStyles = makeStyles(() =>
             alignItems: 'center',
             marginTop: '122px',
             boxShadow: 'none',
-            backgroundColor: '#FD811F'
+            backgroundColor: '#C9E265'
         },
 
         appbarColor: {
-            backgroundColor: '#FD811F'
+            backgroundColor: '#C9E265'
         },
 
         barra:{
@@ -79,7 +79,7 @@ export function Navbar(){
             <Toolbar variant='dense'  >
                 <Box display='flex' >
                 <Box> 
-                    <img src="https://i.imgur.com/ESvAjMO.png" alt="logo" />
+                    <img src="https://i.imgur.com/ljg0ZMX.png" alt="logo" height='155px' width='155px' />
                 </Box>
                 <Box display= 'flex' className='login'> 
                     

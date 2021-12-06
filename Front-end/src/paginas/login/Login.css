@@ -3,16 +3,28 @@
 }
 
 .imagem{
-        background-image: url(https://cdn.pixabay.com/photo/2018/04/06/12/49/sustainability-3295757_960_720.jpg);
-        background-repeat: no-repeat;
-        width: 100vh; 
-        min-height: 100vh;
-        background-size: cover; 
-        background-position: center;
+    background-image: url(https://cdn.pixabay.com/photo/2018/04/06/12/49/sustainability-3295757_960_720.jpg);
+    background-repeat: non-repeat;
+    margin-top: 10px;
+    width: 20vh !important;
+    min-height: 20vh! important;
+    background-size: cover;
+    background-position: center;
     
-}
+} 
 
 
 .text-decorator-none{
     text-decoration: none;
+}
+
+.padding-10{
+    margin-top: 200px;
+
+}
+
+.padding-101{
+    margin-left: 400px;
+    margin-right: 400px;
+
 }

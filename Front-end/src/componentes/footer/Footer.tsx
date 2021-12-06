@@ -16,7 +16,7 @@ function Footer() {
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <Box className='logo' marginRight="auto">
-                                <img src="https://i.imgur.com/ESvAjMO.png" alt="logo" />
+                                <img src="https://i.imgur.com/ljg0ZMX.png" alt="logo" width='155px' height='155px' />
                             </Box>
                             <Box className='redessociais' marginLeft="auto">
                                 <a href="https://www.instagram.com/anadantasp/" target="_blank">
