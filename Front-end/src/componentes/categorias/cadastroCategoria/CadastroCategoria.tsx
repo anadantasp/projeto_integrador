@@ -1,13 +1,13 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import Categoria from '../../../models/Categoria';
-import {buscaId, post, put} from '../../../services/Service';
+import { buscaId, post, put } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 
 
 function CadastroCategoria() {
-    
+
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
     const [token, setToken] = useLocalStorage('token');
@@ -15,21 +15,22 @@ function CadastroCategoria() {
     const [categoria, setCategoria] = useState<Categoria>({
         id: 0,
         descricao: '',
-        
+        categoria: '',
         palavraChave: '',
     })
 
-    useEffect(()=>{
-        if(token ==""){
+    useEffect(() => {
+        if (token == "") {
             alert("Você precisa estar logado")
             history.push("/login")
         }
     }, [token])
 
-    useEffect(()=> {
-        if(id !== undefined){
-            findById(id)}
-        
+    useEffect(() => {
+        if (id !== undefined) {
+            findById(id)
+        }
+
     }, [id])
 
     async function findById(id: string) {
@@ -84,6 +85,7 @@ function CadastroCategoria() {
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro categoria</Typography>
                 <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={categoria.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="categoria" label="Categoria" variant="outlined" name="categoria" margin="normal" fullWidth />
                 <TextField value={categoria.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="palavraChave" label="Palavra Chave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
