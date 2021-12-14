@@ -4,6 +4,7 @@ import './Home.css';
 import ModalProduto from '../../componentes/produtos/modalproduto/ModalProduto';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory, useParams } from 'react-router-dom';
+import ProductsHome from './ProdutoHome';
 
 
 function Home() {
@@ -37,7 +38,9 @@ function Home() {
                 <Grid item xs={6} >
                     <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
                 </Grid>
+                <ProductsHome />
             </Grid>
+            
         </>
     );
 }

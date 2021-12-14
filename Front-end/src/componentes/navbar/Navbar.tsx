@@ -23,6 +23,7 @@ const useStyles = makeStyles(() =>
             textAlign: "center",
             marginLeft: '75px',
             marginRight: '75px',
+            textDecoration:'none'
 
 
         },
@@ -36,7 +37,7 @@ const useStyles = makeStyles(() =>
         },
         appbar: {
             alignItems: 'center',
-            marginTop: '130px',
+            marginTop: '210px',
             boxShadow: 'none',
             backgroundColor: '#C9E265'
         },
@@ -110,23 +111,37 @@ export function Navbar() {
                         <Toolbar variant='dense' className={classes.customizeToolbar} >
                             <Box display='flex' justifyContent='space-around'>
                                 <div>
-                                    <Link to="/home">
+                                    <Link to="/home" className='title'>
                                         <Box mx={1}>
                                             <Typography variant="h6" color="initial" className={classes.title}>Home</Typography>
                                         </Box>
                                     </Link>
                                 </div>
                                 <div>
-                                    <Link to="/categorias">
+                                    <Link to="/categorias" className='title'>
                                         <Box mx={1}>
                                             <Typography variant="h6" color="initial" className={classes.title}>Categorias</Typography>
                                         </Box>
                                     </Link>
                                 </div>
                                 <div>
-                                    <Link to="/produtos">
+                                    <Link to="/produtos" className='title'>
                                         <Box mx={1}>
                                             <Typography variant="h6" color="initial" className={classes.title}>Produtos</Typography>
+                                        </Box>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link to="/produtosdev" className='title'>
+                                        <Box mx={1}>
+                                            <Typography variant="h6" color="initial" className={classes.title}>Produtos Admin</Typography>
+                                        </Box>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link to="/categoriasdev" className='title'>
+                                        <Box mx={1}>
+                                            <Typography variant="h6" color="initial" className='{classes.title}'>Categorias Admin</Typography>
                                         </Box>
                                     </Link>
                                 </div>
