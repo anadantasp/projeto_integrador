@@ -86,7 +86,7 @@ export function Navbar() {
                                     </Box>
                                     <Box display='flex' className='login'>
 
-                                        <Typography variant="h6" color="initial" className={classes.title2} onClick={() => logout()}>Logout </Typography>
+                                        <Typography variant="h6" color="initial" className={classes.title2} onClick={() => logout()}>Logout</Typography>
 
                                         <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank" className={classes.title2}>
                                             <ShoppingCartIcon className=" redes" />
@@ -110,19 +110,25 @@ export function Navbar() {
                         <Toolbar variant='dense' className={classes.customizeToolbar} >
                             <Box display='flex' justifyContent='space-around'>
                                 <div>
-                                    <Box mx={1}>
-                                        <Typography variant="h6" color="initial" className={classes.title}>Home</Typography>
-                                    </Box>
+                                    <Link to="/home">
+                                        <Box mx={1}>
+                                            <Typography variant="h6" color="initial" className={classes.title}>Home</Typography>
+                                        </Box>
+                                    </Link>
                                 </div>
                                 <div>
-                                    <Box mx={1}>
-                                        <Typography variant="h6" color="initial" className={classes.title}>Categorias</Typography>
-                                    </Box>
+                                    <Link to="/categorias">
+                                        <Box mx={1}>
+                                            <Typography variant="h6" color="initial" className={classes.title}>Categorias</Typography>
+                                        </Box>
+                                    </Link>
                                 </div>
                                 <div>
-                                    <Box mx={1}>
-                                        <Typography variant="h6" color="initial" className={classes.title}>Produtos</Typography>
-                                    </Box>
+                                    <Link to="/produtos">
+                                        <Box mx={1}>
+                                            <Typography variant="h6" color="initial" className={classes.title}>Produtos</Typography>
+                                        </Box>
+                                    </Link>
                                 </div>
                                 <div>
                                     <Box mx={1}>
