@@ -8,13 +8,9 @@ import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import CarouselComponent from './componentes/carousel/CarouselComponent';
 import './App.css';
-import ListaCategoria from './componentes/categoria/listacategoria/ListaCategoria';
-import ListaProduto from './componentes/produtos/listaproduto/ListaProduto';
-import CadastroProduto from './componentes/produtos/cadastroproduto/CadastroProduto';
-import CadastroCategoria from './componentes/categoria/cadastrocategoria/CadastroCategoria';
-import DeletarProduto from './componentes/produtos/deletarproduto/DeletarProduto';
-import DeletarCategoria from './componentes/categoria/deletarcategoria/DeletarCategoria';
-
+import CadastroCategoria from './componentes/categorias/cadastroCategoria/CadastroCategoria';
+import DeletarCategoria from './componentes/categorias/deletarCategoria/DeletarCategoria';
+import ListaCategoria from './componentes/categorias/listacategoria/ListaCategoria';
 
 function App() {
   return (
@@ -37,40 +33,25 @@ function App() {
             <Home />
           </Route>
 
-          <Route path='/cadastrousuario'>
-            <CadastroUsuario />
-          </Route>
-
           <Route path='/categorias'>
             <ListaCategoria />
           </Route>
 
-          <Route path='/produtos'>
-            <ListaProduto />
-          </Route>
 
-          <Route exact path='/formularioProduto/'>
-            <CadastroProduto />
-          </Route>
 
-          <Route exact path='/formularioProduto/:id'>
-            <CadastroProduto />
+          <Route path='/cadastrousuario'>
+            <CadastroUsuario />
           </Route>
 
           <Route exact path='/formularioCategoria'>
             <CadastroCategoria />
           </Route>
-
           <Route exact path='/formularioCategoria/:id'>
             <CadastroCategoria />
           </Route>
 
-          <Route exact path='/deletarProduto/:id'>
-            <DeletarProduto />
-          </Route>
-
-          <Route exact path='/deletarCategoria/:id'>
-            <DeletarCategoria />
+          <Route path='/deletarCategoria/:id'>
+            < DeletarCategoria />
           </Route>
 
         </div>
