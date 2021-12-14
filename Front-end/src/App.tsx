@@ -8,15 +8,18 @@ import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import CarouselComponent from './componentes/carousel/CarouselComponent';
 import './App.css';
+import CadastroCategoria from './componentes/categorias/cadastroCategoria/CadastroCategoria';
+import DeletarCategoria from './componentes/categorias/deletarCategoria/DeletarCategoria';
+import ListaCategoria from './componentes/categorias/listacategoria/ListaCategoria';
 
 function App() {
   return (
     <Router>
-      
+
       <Switch>
         <div style={{ minHeight: '100vh' }}>
 
-        <Route exact path='/'>
+          <Route exact path='/'>
             <Login />
           </Route>
 
@@ -25,9 +28,13 @@ function App() {
           </Route>
 
           <Route path='/home'>
-          <Navbar />
-          <CarouselComponent />
+            <Navbar />
+            <CarouselComponent />
             <Home />
+          </Route>
+
+          <Route path='/categorias'>
+            <ListaCategoria />
           </Route>
 
 
@@ -35,11 +42,23 @@ function App() {
           <Route path='/cadastrousuario'>
             <CadastroUsuario />
           </Route>
+
+          <Route exact path='/formularioCategoria'>
+            <CadastroCategoria />
+          </Route>
+          <Route exact path='/formularioCategoria/:id'>
+            <CadastroCategoria />
+          </Route>
+
+          <Route path='/deletarCategoria/:id'>
+            < DeletarCategoria />
+          </Route>
+
         </div>
       </Switch>
       <Footer />
     </Router >
-  
+
   );
 }
 
