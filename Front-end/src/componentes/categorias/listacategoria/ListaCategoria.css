@@ -1,3 +1,12 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.botaoCategoriaAtualizar{
+    background-color: rgb(77, 134, 77)!important;
+    color: white!important;
+}
+.botaoCategoriaDeletar{
+    background-color: rgb(238, 68, 68)!important;
+    color: white!important;
+}

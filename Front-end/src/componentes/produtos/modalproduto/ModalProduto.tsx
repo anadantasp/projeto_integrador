@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import { Button, Box } from "@material-ui/core"
 import CloseIcon from '@material-ui/icons/Close';
 import './ModalProduto.css';
-import CadastroProduto from '../cadastroproduto/CadastroProduto';
+import CadastroProduto from '../cadastroProduto/CadastroProduto';
 
 
 function getModalStyle() {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function ModalPostagem() {
+function ModalProduto() {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
@@ -73,4 +73,4 @@ function ModalPostagem() {
     </div>
   );
 }
-export default ModalPostagem
+export default ModalProduto;

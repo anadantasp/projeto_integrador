@@ -10,7 +10,7 @@ import CarouselComponent from './componentes/carousel/CarouselComponent';
 import './App.css';
 import ListaCategoria from './componentes/categorias/listacategoria/ListaCategoria';
 import ListaProduto from './componentes/produtos/listaproduto/ListaProduto';
-import CadastroProduto from './componentes/produtos/cadastroproduto/CadastroProduto';
+import CadastroProduto from './componentes/produtos/cadastroProduto/CadastroProduto';
 import CadastroCategoria from './componentes/categorias/cadastroCategoria/CadastroCategoria';
 import DeletarProduto from './componentes/produtos/deletarproduto/DeletarProduto';
 import DeletarCategoria from './componentes/categorias/deletarCategoria/DeletarCategoria';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Container, Typography, TextField, Button } from "@material-ui/core"
+import { Container, Typography, TextField, Button, Box } from "@material-ui/core"
 import Categoria from '../../../models/Categoria';
 import { buscaId, post, put } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
@@ -81,17 +81,19 @@ function CadastroCategoria() {
 
 
     return (
+        <Box paddingTop={7}>
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro categoria</Typography>
-                <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <TextField value={categoria.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="categoria" label="Categoria" variant="outlined" name="categoria" margin="normal" fullWidth />
-                <TextField value={categoria.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="palavraChave" label="Palavra Chave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
+                <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descriçao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={categoria.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="categoria" label="categoria" variant="outlined" name="categoria" margin="normal" fullWidth />
+                <TextField value={categoria.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="palavraChave" label="palavra-chave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
             </form>
         </Container>
+        </Box>
     )
 }
 

@@ -23,7 +23,9 @@ const useStyles = makeStyles(() =>
             textAlign: "center",
             marginLeft: '75px',
             marginRight: '75px',
-            textDecoration:'none'
+            textDecoration:'none',
+            color: "#595f40",
+
 
 
         },
@@ -78,7 +80,7 @@ export function Navbar() {
         <>
             <Grid container direction='column' className={classes.Margemtop} justifyContent='flex-start' alignItems='flex-start'>
                 <Grid item alignItems='center' xs={6}>
-                    <Box>
+                    <Box paddingBottom={9}>
                         <AppBar position='absolute' className={classes.appbarColor} >
                             <Toolbar variant='dense'  >
                                 <Box display='flex' >

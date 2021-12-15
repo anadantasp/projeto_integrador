@@ -1,7 +1,7 @@
 import React, { useEffect, } from 'react';
 import { Box, Button, Grid, Typography } from '@material-ui/core';
 import './Home.css';
-import ModalProduto from '../../componentes/produtos/modalproduto/ModalProduto';
+import ModalProduto from '../../componentes/produtos/modalProduto/modalProduto';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory, useParams } from 'react-router-dom';
 import ProductsHome from './ProdutoHome';

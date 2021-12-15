@@ -53,14 +53,14 @@ function ListaPoduto() {
 
                   <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                      <Button variant="contained" className="marginLeft btnAtualizarProduto" size='small'  >
                         atualizar
                       </Button>
                     </Box>
                   </Link>
                   <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
+                      <Button variant="contained" size='small' className="btnDeletarProduto">
                         deletar
                       </Button>
                     </Box>
