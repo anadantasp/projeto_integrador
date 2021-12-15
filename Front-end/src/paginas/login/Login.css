@@ -2,18 +2,6 @@
     font-weight: bold!important;
 }
 
-.imagem{
-    background-image: url(https://cdn.pixabay.com/photo/2018/04/06/12/49/sustainability-3295757_960_720.jpg);
-    background-repeat: non-repeat;
-    margin-top: 10px;
-    width: 20vh !important;
-    min-height: 20vh! important;
-    background-size: cover;
-    background-position: center;
-    
-} 
-
-
 .text-decorator-none{
     text-decoration: none;
 }

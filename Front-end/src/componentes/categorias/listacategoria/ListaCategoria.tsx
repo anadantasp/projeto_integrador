@@ -6,6 +6,7 @@ import './ListaCategoria.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom';
 import { busca } from '../../../services/Service';
+import { toast } from 'react-toastify';
 
 function ListaCategoria() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
@@ -14,7 +15,16 @@ function ListaCategoria() {
 
     useEffect(() => {
         if (token == '') {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
             history.push("/login")
         }
     }, [token])
@@ -37,7 +47,7 @@ function ListaCategoria() {
         <>
             {
                 categorias.map(categoria => (
-                    <Box m={2} paddingBottom={3}>
+                    <Box m={2} >
                         <Card variant="outlined">
                             <CardContent>
                                 <Typography color="textSecondary" gutterBottom>
@@ -55,14 +65,14 @@ function ListaCategoria() {
 
                                     <Link to={`/formularioCategoria/${categoria.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft botaoCategoriaAtualizar" size='small' >
+                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
                                                 atualizar
                                             </Button>
                                         </Box>
                                     </Link>
                                     <Link to={`/deletarCategoria/${categoria.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" size='small' className='botaoCategoriaDeletar'>
+                                            <Button variant="contained" size='small' color="secondary">
                                                 deletar
                                             </Button>
                                         </Box>

@@ -6,6 +6,7 @@ import Categoria from '../../../models/Categoria';
 import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
 import { busca, buscaId, post, put } from '../../../services/Service';
+import { toast } from 'react-toastify';
 
 function CadastroProduto() {
 
@@ -16,7 +17,16 @@ function CadastroProduto() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error("Você precisa estar logado", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "light",
+        progress: undefined,
+      })
       history.push("/login")
 
     }
@@ -27,8 +37,9 @@ function CadastroProduto() {
       id: 0,
       categoria: '',
       descricao: '',
-      palavraChave: ''
+      palavraChave: '',
     })
+
   const [produto, setProduto] = useState<Produto>({
     id: 0,
     nome: "",
@@ -37,13 +48,13 @@ function CadastroProduto() {
     descricao: "",
     imagem: "",
     ativo: false,
-    categoria: null
+    categoria: null,
   })
 
   useEffect(() => {
     setProduto({
       ...produto,
-      categoria: categoria
+      categoria: categoria,
     })
   }, [categoria])
 
@@ -82,6 +93,7 @@ function CadastroProduto() {
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
+    console.log("produto " + JSON.stringify(produto))
 
     if (id !== undefined) {
       put(`/produtos`, produto, setProduto, {
@@ -89,34 +101,56 @@ function CadastroProduto() {
           'Authorization': token
         }
       })
-      alert('Postagem atualizada com sucesso');
+      toast.success("Produto atualizado com sucesso!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "light",
+        progress: undefined,
+      })
+
     } else {
       post(`/produtos`, produto, setProduto, {
         headers: {
           'Authorization': token
         }
       })
-      alert('Postagem cadastrada com sucesso');
+      toast.success("Produto cadastrado com sucesso!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "light",
+        progress: undefined,
+      })
     }
     back()
 
   }
 
   function back() {
-    history.push('/posts')
+    history.push('/produtos')
   }
 
   return (
     <Container maxWidth="sm" className="topo">
       <form onSubmit={onSubmit}>
+
         <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
-        <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-        <TextField value={produto.dtfabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="dtfabricacao" label="dtfabricacao" name="dtfabricacao" variant="outlined" margin="normal" fullWidth />
-        <TextField value={produto.imagem} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="imagem" label="imagem" name="imagem" variant="outlined" margin="normal" fullWidth />
         <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="nome" name="nome" variant="outlined" margin="normal" fullWidth />
+        <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="preco" label="Preço" name="preco" variant="outlined" margin="normal" fullWidth />
+        <TextField value={produto.dtfabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="dtfabricacao" label="data de fabricação" name="dtfabricacao" variant="outlined" margin="normal" fullWidth />
+        <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="descricao" label="descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
+        <TextField value={produto.imagem} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="imagem" label="imagem" name="imagem" variant="outlined" margin="normal" fullWidth />
+        <TextField value={produto.ativo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="ativo" label="ativo" name="ativo" variant="outlined" margin="normal" fullWidth />
 
         <FormControl >
-          <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+          <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"

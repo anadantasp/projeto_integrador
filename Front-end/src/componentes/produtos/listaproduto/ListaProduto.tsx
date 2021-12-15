@@ -5,6 +5,7 @@ import { Box, Card, CardActions, CardContent, Button, Typography } from '@materi
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service';
 import './ListaProduto.css';
+import { toast } from 'react-toastify';
 
 function ListaPoduto() {
 
@@ -14,7 +15,16 @@ function ListaPoduto() {
 
   useEffect(() => {
     if (token == '') {
-      alert('Você precisa esstar logado')
+      toast.error("Você precisa estar logado.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "light",
+        progress: undefined,
+      })
       history.push("/login")
     }
   }, [token])
@@ -53,14 +63,14 @@ function ListaPoduto() {
 
                   <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft btnAtualizarProduto" size='small'  >
+                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
                         atualizar
                       </Button>
                     </Box>
                   </Link>
                   <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' className="btnDeletarProduto">
+                      <Button variant="contained" size='small' color="secondary">
                         deletar
                       </Button>
                     </Box>

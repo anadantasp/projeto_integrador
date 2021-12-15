@@ -1,9 +1,10 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Container, Typography, TextField, Button, Box } from "@material-ui/core"
+import { Container, Typography, TextField, Button } from "@material-ui/core"
 import Categoria from '../../../models/Categoria';
 import { buscaId, post, put } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
+import { toast } from 'react-toastify';
 
 
 function CadastroCategoria() {
@@ -21,7 +22,16 @@ function CadastroCategoria() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error("Você precisa estar logado", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
             history.push("/login")
         }
     }, [token])
@@ -61,17 +71,35 @@ function CadastroCategoria() {
                     'Authorization': token
                 }
             })
-            alert('Categoria atualizado com sucesso');
+            toast.success('Categoria atualizada com sucesso!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
         } else {
             post(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Categoria cadastrado com sucesso');
+            toast.success('Categoria cadastrada com sucesso!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
+
         }
         back()
-
     }
 
     function back() {
@@ -81,19 +109,17 @@ function CadastroCategoria() {
 
 
     return (
-        <Box paddingTop={7}>
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro categoria</Typography>
-                <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descriçao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <TextField value={categoria.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="categoria" label="categoria" variant="outlined" name="categoria" margin="normal" fullWidth />
-                <TextField value={categoria.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="palavraChave" label="palavra-chave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
+                <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                <TextField value={categoria.categoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="categoria" label="Categoria" variant="outlined" name="categoria" margin="normal" fullWidth />
+                <TextField value={categoria.palavraChave} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="palavraChave" label="Palavra Chave" variant="outlined" name="palavraChave" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
             </form>
         </Container>
-        </Box>
     )
 }
 

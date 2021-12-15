@@ -10,20 +10,21 @@ import CarouselComponent from './componentes/carousel/CarouselComponent';
 import './App.css';
 import ListaCategoria from './componentes/categorias/listacategoria/ListaCategoria';
 import ListaProduto from './componentes/produtos/listaproduto/ListaProduto';
-import CadastroProduto from './componentes/produtos/cadastroProduto/CadastroProduto';
+import CadastroProduto from './componentes/produtos/cadastroproduto/CadastroProduto';
 import CadastroCategoria from './componentes/categorias/cadastroCategoria/CadastroCategoria';
 import DeletarProduto from './componentes/produtos/deletarproduto/DeletarProduto';
 import DeletarCategoria from './componentes/categorias/deletarCategoria/DeletarCategoria';
 import Products from './componentes/produtos/cardprodutos/CardProdutos';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   return (
     <Router>
-
+      <ToastContainer />
       <Switch>
         <div style={{ minHeight: '100vh' }}>
-
           <Route exact path='/'>
             <Login />
           </Route>
@@ -58,7 +59,7 @@ function App() {
 
           <Route path='/produtos'>
             <Navbar />
-            <Products/>
+            <Products />
           </Route>
 
           <Route exact path='/formularioProduto/'>
@@ -92,7 +93,6 @@ function App() {
 
           </Route><Route exact path='/produtoDetalhe/:id'>
             <Navbar />
-            
           </Route>
 
         </div>
