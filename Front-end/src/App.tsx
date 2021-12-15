@@ -17,6 +17,8 @@ import DeletarCategoria from './componentes/categorias/deletarCategoria/DeletarC
 import Products from './componentes/produtos/cardprodutos/CardProdutos';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProdutoPorCategoria from './componentes/categorias/produtoPorCategoria/ProdutoPorCategoria';
+
 
 
 function App() {
@@ -87,11 +89,17 @@ function App() {
             <DeletarProduto />
           </Route>
 
+          <Route exact path='/produtoPorCategoria/:id'>
+            <Navbar />
+            <ProdutoPorCategoria />
+          </Route>
+
           <Route exact path='/deletarCategoria/:id'>
             <Navbar />
             <DeletarCategoria />
+          </Route>
 
-          </Route><Route exact path='/produtoDetalhe/:id'>
+          <Route exact path='/produtoDetalhe/:id'>
             <Navbar />
           </Route>
 

@@ -8,6 +8,7 @@ import './Navbar.css'
 import './Search'
 import Search from "./Search";
 import { toast } from 'react-toastify';
+import MenuComponent from "../menu/MenuComponent";
 
 
 
@@ -112,11 +113,7 @@ export function Navbar() {
                                             </Link>
                                         </div>
                                         <div>
-                                            <Link to="/categorias" className='title'>
-                                                <Box mx={1}>
-                                                    <Typography variant="h6" color="initial" className={classes.title}>Categorias</Typography>
-                                                </Box>
-                                            </Link>
+                                          <MenuComponent/>
                                         </div>
                                         <div>
                                             <Link to="/produtos" className='title'>

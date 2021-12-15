@@ -38,6 +38,7 @@ function CadastroProduto() {
       categoria: '',
       descricao: '',
       palavraChave: '',
+      produto: []
     })
 
   const [produto, setProduto] = useState<Produto>({

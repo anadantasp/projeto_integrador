@@ -18,6 +18,7 @@ function CadastroCategoria() {
         descricao: '',
         categoria: '',
         palavraChave: '',
+        produto: [],
     })
 
     useEffect(() => {
