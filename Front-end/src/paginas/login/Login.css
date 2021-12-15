@@ -1,7 +1,10 @@
 .textos{
-    font-weight: bold!important;
+    color: preto;
+    font-weight:bolder!important;
+    text-align: center;
+    font-size: medium;
+    font-kerning: normal;
 }
-
 .text-decorator-none{
     text-decoration: none;
 }
@@ -15,4 +18,48 @@
     margin-left: 400px;
     margin-right: 400px;
 
+}
+
+.bordaLogin{
+    border: 5px solid #c9e265;
+    border-radius: 4%;
+}
+
+.tamanho{
+    padding-left: 35%;
+    padding-right: 35%; 
+}
+
+.entreEmail{
+    padding-bottom:  10px;
+}
+
+.background{
+    background: #f0ffb4
+}
+
+#cadastre-se{
+    font-weight: bold!important;
+    text-align: center;
+    font-style: italic;
+}
+
+#usuário{
+    font-style: italic;
+}
+
+.email {
+    color: #ffff;
+
+}
+.desembala {
+    font-weight:bolder!important;
+}
+.logo {
+    padding-left: 100px;
+}
+.botaologin {
+    background-color:#c9e265 !important;
+    font-style: italic;
+    color: black !important;
 }

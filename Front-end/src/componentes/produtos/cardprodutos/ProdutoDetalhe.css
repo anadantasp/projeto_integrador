@@ -1,0 +1,6 @@
+.image-detail{
+    width: 90%;
+height: 80vh;
+object-fit: cover;
+cursor: pointer;
+}

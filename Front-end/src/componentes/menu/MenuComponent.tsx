@@ -81,7 +81,7 @@ export default function MenuComponent() {
         }}
       >
         {categorias.map(categoria => (
-          <Link to={`/produtoPorCategoria/${categoria.id}`} className="text-decorator-none">
+          <Link to={`/categoriaDetalhe/${categoria.id}`} className="text-decorator-none">
             <MenuItem onClick={handleClose}>{categoria.descricao}</MenuItem>
           </Link>
         ))

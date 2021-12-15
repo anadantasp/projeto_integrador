@@ -5,7 +5,6 @@ import useLocalStorage from 'react-use-localstorage';
 import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import './Login.css';
-import { toast } from "react-toastify";
 
 function Login() {
     let history = useHistory();
@@ -36,55 +35,45 @@ function Login() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
+
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
-            toast.success('Bem vinde!', {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "light",
-                progress: undefined,
-            })
+
+
+            alert('Usuário logado com sucesso!')
         } catch (error) {
-            toast.error('Erro ao logar! Dados do usuário inconsistentes.', {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "light",
-                progress: undefined,
-            })
+            alert('Dados do usuário inconsistentes. Erro ao logar!')
 
         }
     }
 
+
+
+
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid className='padding-101' alignItems='center' xs={12}>
-                <Box className='padding-10'>
+        <Grid container direction='row' justifyContent='center' alignItems='center' className='background'>
+            <Grid className="tamanho" alignItems='center' xs={12}>
+                <Box marginY={20} className="bordaLogin" paddingX={3} paddingY={8}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos'>Entre com o seu e-mail</Typography>
+                        <img className='logo' src="https://i.imgur.com/VzAOo5s.png" alt="logo-desemabala" width='150px' height='150px'>
+                        </img>
+                        <Typography className='email' variant='h5' gutterBottom color='textPrimary' component='h3' align='center'> Login </Typography>
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
 
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button className='botaologin' type='submit' variant='contained' color='primary'>
                                 Logar
                             </Button>
 
                         </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
-                        <Box marginRight={2}>
-                            <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+                        <Box>
+                            <Typography className='textos' variant='subtitle1' gutterBottom align='center'>Não tem uma conta?  </Typography>
                         </Box>
                         <Link to='/cadastrousuario'>
-                            <Typography variant='subtitle1' gutterBottom align='center' className='textos'>Cadastre-se</Typography>
+                            <Typography variant='subtitle1' gutterBottom align='center' id='cadastre-se'> Cadastre-se</Typography>
                         </Link>
                     </Box>
                 </Box>

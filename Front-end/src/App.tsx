@@ -18,6 +18,8 @@ import Products from './componentes/produtos/cardprodutos/CardProdutos';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProdutoPorCategoria from './componentes/categorias/produtoPorCategoria/ProdutoPorCategoria';
+import ProdutoDetalhe from './componentes/produtos/cardprodutos/ProdutoDetalhe';
+import CategoriaDetalhe from './componentes/categorias/categoriaDetalhe/CategoriaDetalhe';
 
 
 
@@ -101,6 +103,14 @@ function App() {
 
           <Route exact path='/produtoDetalhe/:id'>
             <Navbar />
+          </Route>
+          <Route exact path='/produtoDetalhe/:id'>
+            <Navbar />
+            <ProdutoDetalhe/>
+          </Route>
+          <Route exact path='/categoriaDetalhe/:id'>
+            <Navbar />
+            <CategoriaDetalhe/>
           </Route>
 
         </div>
