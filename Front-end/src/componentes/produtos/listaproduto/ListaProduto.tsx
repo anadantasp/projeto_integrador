@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service';
 import './ListaProduto.css';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaPoduto() {
 
   const [produtos, setProdutos] = useState<Produto[]>([])
-  const [token, setToken] = useLocalStorage('token');
   let history = useHistory();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
 
   useEffect(() => {
     if (token == '') {

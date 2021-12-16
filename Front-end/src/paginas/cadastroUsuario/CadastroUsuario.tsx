@@ -19,6 +19,7 @@ function CadastroUsuario() {
             id: 0,
             nomeCompleto: '',
             usuario: '',
+            tipo: '',
             senha: ''
         })
 
@@ -27,6 +28,7 @@ function CadastroUsuario() {
             id: 0,
             nomeCompleto: '',
             usuario: '',
+            tipo: '',
             senha: ''
         })
 

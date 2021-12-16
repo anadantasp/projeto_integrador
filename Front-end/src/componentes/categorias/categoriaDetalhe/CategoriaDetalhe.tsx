@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { CardContent, CardActions } from "@material-ui/core";
 import { useState } from "react";
-import useLocalStorage from "react-use-localstorage";
 import Categoria from "../../../models/Categoria";
 import { ChangeEvent } from "react";
 import { useEffect } from "react";
@@ -14,6 +13,8 @@ import { Box } from "@material-ui/core";
 
 import Product from "../../produtos/cardprodutos/Produto";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function CategoriaDetalhe() {
     const { id } = useParams<{ id: string }>();
@@ -24,7 +25,9 @@ function CategoriaDetalhe() {
         palavraChave: '',
         produto: []
     })
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     let history = useHistory();
     
 

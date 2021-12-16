@@ -20,11 +20,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProdutoPorCategoria from './componentes/categorias/produtoPorCategoria/ProdutoPorCategoria';
 import ProdutoDetalhe from './componentes/produtos/cardprodutos/ProdutoDetalhe';
 import CategoriaDetalhe from './componentes/categorias/categoriaDetalhe/CategoriaDetalhe';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
       <ToastContainer />
       <Switch>
@@ -117,7 +120,7 @@ function App() {
       </Switch>
       <Footer />
     </Router >
-
+    </Provider>
   );
 }
 

@@ -2,18 +2,21 @@ import { useHistory, useParams } from 'react-router';
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { buscaId } from '../../../services/Service';
 import Produto from '../../../models/Produto';
-import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Service';
 import Categoria from '../../../models/Categoria';
 import styled from 'styled-components';
 import './ProdutoDetalhe.css'
 import { Add, AddAlarm, Remove } from '@material-ui/icons';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ProdutoDetalhe(){
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
     const [categorias, setCategorias] = useState<Categoria[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if (token == "") {

@@ -2,15 +2,18 @@ import React, { useEffect, } from 'react';
 import { Box, Button, Grid, Typography } from '@material-ui/core';
 import './Home.css';
 import ModalProduto from '../../componentes/produtos/modalproduto/ModalProduto';
-import useLocalStorage from 'react-use-localstorage';
 import { useHistory, useParams } from 'react-router-dom';
 import ProductsHome from './ProdutoHome';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 
 function Home() {
 
     let history = useHistory();
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if (token == "") {

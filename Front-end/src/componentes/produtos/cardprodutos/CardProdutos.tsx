@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service';
 import styled from 'styled-components'
 import Product from './Produto';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 const Container = styled.div`
 padding: 20px;
 display: flex;
@@ -16,7 +17,9 @@ flex-wrap: wrap;
 function Products() {
 
     const [produtos, setProdutos] = useState<Produto[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     let history = useHistory();
 
     useEffect(() => {
