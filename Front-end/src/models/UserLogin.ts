@@ -3,7 +3,7 @@ interface UserLogin {
     usuario: string;
     senha: string;
     tipo: string;
-    token?: string|null
+    token:string
 }
 
 export default UserLogin;

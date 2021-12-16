@@ -46,6 +46,16 @@ const Container = styled.div`
     opacity: 1;
 }
 `;
+const Container2 = styled.div`
+    flex:1;
+    margin: 15px;
+    min-width:  350px;
+    max-width: 350px;
+    height: 480px;
+    
+}
+`;
+
 
 
 
@@ -56,7 +66,7 @@ const Product = ({ item }: any) => {
 
 
     return (
-
+        <>
         <Container >
 
             <Link to={"/produtoDetalhe/" + item.id}  >
@@ -78,8 +88,14 @@ const Product = ({ item }: any) => {
             <Box justifyContent='center' className='display' >
                 <Button className='btn'>Comprar</Button>
             </Box>
-
         </Container>
+        <Container2>
+        </Container2>
+        <Container2>
+        </Container2>
+        <Container2>
+        </Container2>
+        </>
     )
 }
 

@@ -5,52 +5,82 @@ import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import './Login.css';
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/tokens/action";
+import { addToken, addTipo } from "../../store/tokens/action";
+import { toast } from "react-toastify";
 
 function Login() {
+   
     let history = useHistory();
     const dispatch = useDispatch();
-    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
             usuario: '',
-            tipo:'',
+            tipo: '',
+            senha: '',
+            token: ''
+        }
+    )
+
+    const [respUserLogin, setRespUserLogin] = useState<UserLogin>(
+        {
+            id: 0,
+            usuario: '',
+            tipo: '',
             senha: '',
             token: ''
         }
     )
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+
         setUserLogin({
             ...userLogin,
             [e.target.name]: e.target.value
         })
     }
 
+
+
     useEffect(() => {
-        if (token != '') {
-            dispatch(addToken(token));
+
+        if (respUserLogin.token != '') {
+            dispatch(addToken(respUserLogin.token));
+    
+            // adicione dispacth para tipo
+            dispatch(addTipo(respUserLogin.tipo));
             history.push('/home')
         }
-    }, [token])
-
+    }, [respUserLogin.token])
 
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
-
         try {
-            await login(`/usuarios/logar`, userLogin, setToken)
-
-
-            alert('Usuário logado com sucesso!')
+            await login(`/usuarios/logar`, userLogin, setRespUserLogin)
+            toast.success('Usuário logado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!')
-
+            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
     }
-
 
 
 

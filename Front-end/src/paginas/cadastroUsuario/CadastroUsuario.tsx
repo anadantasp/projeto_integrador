@@ -5,7 +5,7 @@ import { cadastroUsuario } from "../../services/Service";
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import './CadastroUsuario.css';
-
+import { FormControl, InputLabel, Select, FormHelperText, MenuItem } from "@material-ui/core";
 
 
 import './CadastroUsuario.css';
@@ -90,6 +90,20 @@ function CadastroUsuario() {
                     <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' variant='outlined' name='usuario' margin='normal' fullWidth />
                     <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                     <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirmar senha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
+                    <FormControl >
+                        <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            name='tipo'
+                            onChange={(e: any) => updatedModel(e)}
+                        >
+                            {/* cada menu item é um tipo de usuario para escolher para o usuario */}
+                            <MenuItem value="Admin">Admin</MenuItem>
+                            <MenuItem value="Comum">Comum</MenuItem>
+                        </Select>
+                        <FormHelperText>Escolha o tipo de usuario</FormHelperText>
+                    </FormControl>
                     <Box marginTop={2} textAlign='center'>
                         <Link to='/login' className='text-decorator-none'>
                             <Button variant='contained' color='secondary' className='btnCancelar'>

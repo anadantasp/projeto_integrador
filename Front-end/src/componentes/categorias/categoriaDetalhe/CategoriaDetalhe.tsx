@@ -61,20 +61,28 @@ function CategoriaDetalhe() {
             produto: []
         })
     }
-
+    const Title = styled.h1`
+    font-weight: 100;
+    display: center;
+    flex: no-wrap;
+    padding-left: 100px;
+    `;
     const Container = styled.div`
 padding: 20px;
 display: flex;
 flex-wrap: wrap;
     justify-content: space-around;
 `
-    
 
     return (
         <>
+            <Title>
+                {categoria.categoria}
+            </Title>
+            
                     <Container>
                         
-                                    {categoria.categoria}
+                                
                                 
                                 {categoria.produto.map(produto => (
                                     <Product item={produto} key={produto.id} />

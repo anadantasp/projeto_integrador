@@ -45,6 +45,15 @@ function CadastroProduto() {
       produto: []
     })
 
+  const [categoriaReq, setCategoriaReq] = useState<Categoria>(
+    {
+      id: 0,
+      categoria: '',
+      descricao: '',
+      palavraChave: '',
+      produto: []
+    })
+
   const [produto, setProduto] = useState<Produto>({
     id: 0,
     nome: "",
@@ -87,11 +96,17 @@ function CadastroProduto() {
   }
 
   function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
-
+    setCategoriaReq({
+      id: categoria.id,
+      categoria: '',
+      descricao: '',
+      palavraChave: '',
+      produto: []
+    })
     setProduto({
       ...produto,
       [e.target.name]: e.target.value,
-      categoria: categoria
+      categoria: categoriaReq
     })
 
   }
@@ -152,7 +167,7 @@ function CadastroProduto() {
         <TextField value={produto.dtfabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="dtfabricacao" label="data de fabricação" name="dtfabricacao" variant="outlined" margin="normal" fullWidth />
         <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="descricao" label="descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
         <TextField value={produto.imagem} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="imagem" label="imagem" name="imagem" variant="outlined" margin="normal" fullWidth />
-        <TextField value={produto.ativo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="ativo" label="ativo" name="ativo" variant="outlined" margin="normal" fullWidth />
+      
 
         <FormControl >
           <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
@@ -163,6 +178,7 @@ function CadastroProduto() {
               headers: {
                 'Authorization': token
               }
+           
             })}>
             {
               categorias.map(categoria => (

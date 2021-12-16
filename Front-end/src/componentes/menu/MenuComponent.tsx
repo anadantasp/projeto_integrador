@@ -3,12 +3,16 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { busca } from '../../services/Service';
 import Categoria from '../../models/Categoria';
-import { useSelector } from 'react-redux';
-import { TokenState } from '../../store/tokens/tokensReducer';
+import { Typography } from '@material-ui/core';
+import { makeStyles, createStyles, styled } from '@material-ui/styles';
+import { fontSize } from '@mui/system';
+
+
 
 export default function MenuComponent() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -16,15 +20,14 @@ export default function MenuComponent() {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   const [categorias, setCategorias] = useState<Categoria[]>([])
+  const [token, setToken] = useLocalStorage('token');
   let history = useHistory();
-  const token = useSelector<TokenState, TokenState["tokens"]>(
-    (state) => state.tokens
-);
 
   useEffect(() => {
     if (token == '') {
@@ -35,7 +38,7 @@ export default function MenuComponent() {
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        theme: "light",
+        theme: "dark",
         progress: undefined,
       })
       history.push("/login")
@@ -59,23 +62,26 @@ export default function MenuComponent() {
 
   return (
     <div>
-      <Button
+      <Typography
+        variant="h6"
         id="demo-positioned-button"
         aria-controls="demo-positioned-menu"
         aria-haspopup="true"
+        onMouseEnter={handleClick}
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Categorias
-      </Button>
+        Categorias ˅
+      </Typography>
       <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
         open={open}
+        onMouseLeave={handleClose}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'top',
+          vertical: 'bottom',
           horizontal: 'left',
         }}
         transformOrigin={{
@@ -84,13 +90,11 @@ export default function MenuComponent() {
         }}
       >
         {categorias.map(categoria => (
-          <Link to={`/categoriaDetalhe/${categoria.id}`} className="text-decorator-none">
-            <MenuItem onClick={handleClose}>{categoria.descricao}</MenuItem>
+          <Link to={`/categoriaDetalhe/${categoria.id}`} style={{ textDecoration: 'none', color: '#6eb658' }} >
+            <MenuItem className='MenuItem' onClick={handleClose}>{categoria.categoria}</MenuItem>
           </Link>
         ))
         }
-
-
       </Menu>
     </div>
   );

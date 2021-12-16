@@ -11,6 +11,7 @@ import MenuComponent from "../menu/MenuComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../store/tokens/tokensReducer";
 import { addToken } from "../../store/tokens/action";
+import MenuAdm from "../menu/MenuAdm";
 
 
 
@@ -69,6 +70,19 @@ export function Navbar() {
         (state) => state.tokens
     );
     const dispatch = useDispatch();
+    
+    const tipo = useSelector<TokenState, TokenState["tipos"]>(
+        (state) => state.tipos
+    );
+
+    var opcaoAdmin
+    if (tipo == "Admin") {
+        opcaoAdmin = <MenuAdm/>
+    }
+
+    
+
+
 
     function logout() {
         dispatch(addToken('')); // para apagar token do localstorage
@@ -90,6 +104,7 @@ export function Navbar() {
         navbarComponent = <Grid container direction='column' justifyContent='flex-start' alignItems='flex-start'>
         <Grid alignItems='center' xs={6}>
             <Box className={classes.Margemtop}>
+                
                 <AppBar position='absolute' className={classes.appbarColor} >
                     <Toolbar variant='dense'  >
                         <Box display='flex' >
@@ -129,19 +144,11 @@ export function Navbar() {
                                     </Link>
                                 </div>
                                 <div>
-                                    <Link to="/produtosdev" className='title'>
-                                        <Box mx={1}>
-                                            <Typography variant="h6" color="initial" className={classes.title}>Produtos Admin</Typography>
-                                        </Box>
-                                    </Link>
+                                    {opcaoAdmin}
                                 </div>
-                                <div>
-                                    <Link to="/categoriasdev" className='title'>
-                                        <Box mx={1}>
-                                            <Typography variant="h6" color="initial" className='{classes.title}'>Categorias Admin</Typography>
-                                        </Box>
-                                    </Link>
-                                </div>
+                                
+                                
+                                
                                 <div>
                                     <Box mx={1}>
                                         <Typography variant="h6" color="initial" className={classes.title}>Sobre Nós</Typography>
