@@ -2,7 +2,8 @@ interface UserLogin {
     id: number;
     usuario: string;
     senha: string;
-    token?: string|null
+    tipo: string;
+    token:string
 }
 
 export default UserLogin;

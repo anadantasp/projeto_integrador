@@ -1,30 +1,89 @@
-.textos{
-    font-weight: bold!important;
-}
 
-.imagem{
-    background-image: url(https://cdn.pixabay.com/photo/2018/04/06/12/49/sustainability-3295757_960_720.jpg);
-    background-repeat: non-repeat;
-    margin-top: 10px;
-    width: 20vh !important;
-    min-height: 20vh! important;
+.container-login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://i.imgur.com/VZ0Zq7o.png%22");
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
-} 
+  }
 
 
-.text-decorator-none{
+  .paperStyle-login{
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+    width: 20vw;
+    height: 65vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px !important;
+  }
+
+  .img{
+    width: 260px;
+    height: 85px;
+    margin-top: -10px;
+    align-items: center;
+  }
+
+  .box-login {
+    margin-top: -7px;
+  }
+
+  .loginText{
+    font-weight: bold !important;
+    color: #6db624;
+    padding: 25px;
+    align-items: center;
+
+  }
+
+  .button{
+    height: 30px;
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold !important;
+    padding: 30px;
+    background: linear-gradient(
+      90deg,
+      rgb(118, 213, 99) 0%,
+      rgb(86, 150, 26) 100%
+
+    );
+  }
+
+  .button:hover {
+    background: linear-gradient(
+      90deg,
+      rgb(82, 144, 68) 0%,
+      rgb(88, 116, 61) 100%
+    );
+    transition: 0.3s ease-out !important;
+  }
+
+  .font {
+    font-size: 15px !important;
+    font-family: Segoe UI !important;
+  }
+
+  .login-link-cadastro {
+    color: #659841;
+    font-size: 15px !important;
+    font-family: Segoe UI;
+    font-weight: bold !important;
     text-decoration: none;
-}
+    margin-left: 3px;
+    font-style: italic;
 
-.padding-10{
-    margin-top: 200px;
+  }
 
-}
+  .login-link-cadastro:hover {
+    color: #356406 !important;
+    transition: 0.3s ease-out !important;
 
-.padding-101{
-    margin-left: 400px;
-    margin-right: 400px;
-
-}
+    }

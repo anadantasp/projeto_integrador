@@ -1,23 +1,76 @@
-.imagem2{
-    background-image: url(https://cdn.pixabay.com/photo/2018/04/06/12/49/sustainability-3295757_960_720.jpg);
+.box-cadastro {
+    margin-top: -15px;
+  }
+
+  .button{
+    height: 32px;
+    color: white !important;
+    font-weight: bold !important;
+    background: linear-gradient(
+      90deg,
+      rgba(119, 169, 109, 1) 0%,
+      rgb(106, 170, 46) 100%
+    );
+  }
+
+  .button:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(119, 169, 109, 1) 0%,
+      rgb(106, 170, 46) 100%
+    );
+    transition: 0.3s ease-out !important;
+  }
+
+  .img-cadastro{
+    width: 250px;
+    height: 85px;
+    margin-top: -10px;
+    align-items: center;
+  }
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://i.imgur.com/VZ0Zq7o.png%22");
     background-repeat: no-repeat;
-    width: 100vh; 
-    min-height: 100vh;
-    background-size: cover; 
+    background-size: 100%;
     background-position: center;
+}
+
+.paperStyle 
+/* caixa branca */ { 
+  padding: 30px;
+  margin:auto;
+  text-align: center;
+  width: 60vh;
+  height: 90vh;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px !important;
+}
+
+.box-info {
+  margin-top: 25px;
+}
+
+.loginText:hover {
+  color: rgb(23, 209, 23);
+  transition: 250ms ease-out;
 
 }
 
-.textos2{
-    font-weight: bold!important;
-}
+  .login-link-login
+  {
+    color: rgb(23, 209, 23) !important;
+    transition: 0.3s ease-out !important;
+    margin-left: 3px;
+    font-style: italic;
 
-.btnCancelar{
-    margin-right: 20px !important;
-
-}
-
-.padding-10{
-    padding: 200px;
-    margin-top: 70px;
-}
+  }

@@ -1,93 +1,149 @@
-import React, {useState, useEffect, ChangeEvent} from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { useHistory } from "react-router-dom";
 import User from "../../models/User";
 import { cadastroUsuario } from "../../services/Service";
-import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
+import { Grid, Box, Typography, TextField, Button, Paper } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import './CadastroUsuario.css';
+import { FormControl, InputLabel, Select, FormHelperText, MenuItem } from "@material-ui/core";
+import styled from "styled-components";
+import './CadastroUsuario.css'
+import { toast } from "react-toastify"
 
-
-
-import './CadastroUsuario.css';
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: '#70A25C',
+    },
+    '& .MuiFormLabel-root': {
+        color: '#70A25C',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: 'black',
+    },
+    '& .MuiInputBase-input': {
+        color: '#70A25C',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'green',
+        },
+        '&:hover fieldset': {
+            borderColor: '#70A25C',
+            boxShadow: '2px 2px 2px #70A25C',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: 'black',
+            boxShadow: '2px 2px black',
+        },
+    },
+});
 
 function CadastroUsuario() {
     let history = useHistory();
-        const [confirmarSenha,setConfirmarSenha] = useState<String>("")
-        const [user, setUser] = useState<User>(
-            {
-                id: 0,
-                nomeCompleto: '',
-                usuario: '',
-                senha: ''
-            })
-    
-        const [userResult, setUserResult] = useState<User>(
-            {
-                id: 0,
-                nomeCompleto: '',
-                usuario: '',
-                senha: ''
-            })
-    
-        useEffect(() => {
-            if (userResult.id != 0) {
-                history.push("/login")
-                
-            }
-        }, [userResult])
-    
-    
-        function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
-            setConfirmarSenha(e.target.value)
+    const [confirmarSenha, setConfirmarSenha] = useState<String>("")
+    const [user, setUser] = useState<User>(
+        {
+            id: 0,
+            nomeCompleto: '',
+            usuario: '',
+            tipo: '',
+            senha: ''
+        })
+
+    const [userResult, setUserResult] = useState<User>(
+        {
+            id: 0,
+            nomeCompleto: '',
+            usuario: '',
+            tipo: '',
+            senha: ''
+        })
+
+    useEffect(() => {
+        if (userResult.id != 0) {
+            history.push("/login")
+
         }
-    
-    
-        function updatedModel(e: ChangeEvent<HTMLInputElement>) {
-    
-            setUser({
-                ...user,
-                [e.target.name]: e.target.value
-            })
-    
-        }
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-            e.preventDefault()
-            if(confirmarSenha == user.senha){
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
-            }else{
-                alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
-            }
-        }
-    
-        return (
-            <Grid container direction='row' justifyContent='center' alignItems='center'>
-                <Grid item xs={6} className='imagem2'></Grid>
-                <Grid item xs={6} alignItems='center'>
-                    <Box className='padding-10'paddingX={10}>
-                        <form onSubmit={onSubmit}>
-                            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Cadastrar</Typography>
-                            <TextField value={user.nomeCompleto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nomeCompleto' label='Nome' variant='outlined' name='nomeCompleto' margin='normal' fullWidth />
-                            <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' variant='outlined' name='usuario' margin='normal' fullWidth />
-                            <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
-                            <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirmar senha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
-                            <Box marginTop={2} textAlign='center'>
-                                <Link to='/login' className='text-decorator-none'>
-                                    <Button variant='contained' color='secondary' className='btnCancelar'>
-                                        Cancelar
-                                    </Button>
-                                </Link>
-                                <Button type='submit' variant='contained' color='primary'>
-                                    Cadastrar
-                                </Button>
-                            </Box>
-                        </form>
-                    </Box>
-                </Grid>
-            </Grid>
-        );
-    
+    }, [userResult])
+
+
+    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
+        setConfirmarSenha(e.target.value)
     }
-    
-    
-    export default CadastroUsuario;
+
+
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+
+    }
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+        if (confirmarSenha == user.senha) {
+            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+            toast.success("Usuario cadastrado com sucesso!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
+        } else {
+            toast.error("Dados inconsistentes. Favor verificar as informações de cadastro.", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
+        }
+    }
+
+    return (
+        <Box className='container'>
+            <Paper elevation={15} className='paperStyle'>
+                <form onSubmit={onSubmit}>
+                    <Box>
+                        <img src="https://i.imgur.com/0o25UkD.png" alt="logo" className='img-cadastro' />
+                    </Box>
+                    <Box className='box-cadastro'>
+                        <Typography variant='h5' align='center' className='loginText'>Cadastro</Typography>
+                        <CssTextField value={user.nomeCompleto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='nomeCompleto'
+                            margin='normal' fullWidth />
+                        <CssTextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usario' label='E-mail' variant='outlined' name='usuario'
+                            margin='normal' fullWidth />
+                        <CssTextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' type='password'
+                            margin='normal' fullWidth />
+                        <CssTextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarsenha' label='Confirmar Senha' variant='outlined'
+                            type='password' name='confirmarsenha' margin='normal' fullWidth />
+                    </Box>
+                    <Box className='box-info'>
+                        <Typography variant='subtitle1' gutterBottom align='center' className='font'> Já tem uma conta? Faça seu
+                            <Link to='/login' className='login-link-login'>
+                                Login
+                            </Link>
+                        </Typography>
+                        <Box marginTop={3} textAlign='center'>
+                            <Button type='submit' className='button' variant="contained" fullWidth>
+                                Cadastrar
+                            </Button>
+                        </Box>
+                    </Box>
+                </form>
+            </Paper>
+        </Box>
+    );
+
+}
+
+
+export default CadastroUsuario;

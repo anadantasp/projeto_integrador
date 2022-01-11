@@ -1,0 +1,36 @@
+.imag{
+    width: 100%;
+height: 80%;
+object-fit: cover;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+cursor: pointer;
+
+}
+
+.btn{
+    opacity: 0;
+}
+
+.display{
+    display:flex;
+    transition: all .5s ease-in-out;
+    
+    
+}
+
+.display:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}
+.display:hover > .btn {
+    
+    opacity: 1;
+}
+
+.cont:hover > .btn{
+    opacity: 1;
+    color: #6eb658;
+}
+
+

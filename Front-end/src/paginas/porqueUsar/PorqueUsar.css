@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2? family = Estonia & family = Gemunu + Libre: wght @ 300; 400; 500; 600; 700; 800 & family = Lato: ital, peso @ 0,300; 0,400; 0,700; 1,300 & family = Poppins: ital, peso @ 0,100; 0,200; 0,300; 0,400; 0,500; 0,600; 0,800; 1,200; 1,400 & display = trocar ');
+
+.background-pq {
+  background-color: #f0ffb4;
+  text-align: center;
+}
+.background-gradient-pq {
+  background-color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.titulo-porqueUsar-pq {
+  color: #4c9657 !important;
+  font-weight: bold !important;
+  font-size: 30px !important;
+  font-family: monospace !important;
+}
+
+
+.imagem-sustentabilidade-pq {
+  background-image: url(https://i.imgur.com/XfNjjzp.png);
+  background-repeat: non-repeat;
+  width:50vh;
+  min-height: 30vh;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.fundo-background-pq {
+  background-color: #437b17;
+  /* background-image: linear-gradient(to top, #d8f3dc 0%, #3a5a40d3 100%); */
+}
+
+.alinhar-pq {
+  margin-bottom: 30px;
+}
+
+.imagem-porqueUsar-pq {
+  background-image: url(https://i.imgur.com/7GzHafw.png);
+  background-repeat: non-repeat;
+  width: 200vh;
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+
+.icon-sustentavel-pq {
+  /* background-image: url(https://i.imgur.com/Kz7xmDB.png); */
+  background-repeat: non-repeat;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.icon-social-pq {
+  /* background-image: url(https://i.imgur.com/OQwdLWz.png); */
+  background-repeat: non-repeat;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.icon-economico-pq {
+  /* background-image: url(https://i.imgur.com/FVYoB1R.png); */
+  background-repeat: non-repeat;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.margin-bottom-pq {
+  margin-bottom: 40px;
+  /* padding: 20px; */
+}
+
+.justify-pq {
+  justify-content: center;
+  align-items: flex-end;
+  text-align: justify;
+}
+
+.btn-pq {
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.grid-4-pq {
+  /* background-image: linear-gradient(to top, #cbe170 0%, #cbe170 100%); */
+  background-color: white;
+}
+.margin-top-pq {
+  margin-top: 150px;
+}
+
+.margin-bottom-typograph-pq {
+  margin-bottom: 50px;
+}
+
+.text-center-pq {
+   text-align: center; 
+  padding: 10px 0px 10px 0px;
+}
+
+.card-titulo-pq{
+ text-align: center;
+ margin: 20px auto;
+ justify-content: center;
+ padding: 20px;
+ color: #4c9657 !important;
+  font-weight: bold !important;
+  font-size: 30px !important;
+  font-family: monospace !important;
+}
+
+.texto-card-pq{
+  padding: 20px;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: justify;
+  font-size: 20px;
+}
+
+.icon-alinhar-pq{
+  margin: auto;
+}
+
+.button-pq{
+  height: 32px;
+  color: white !important;
+  font-weight: bold !important;
+  background: #3a5a40 !important;
+  width: 120px;
+  height: 40px;
+  /* border-color: crimson !important; */
+}
+
+.button:hover-pq {
+  background:#529044  !important;
+  transition: 0.3s ease-out !important;
+}
+
+.img-pq{
+  width: 500px;
+  height: 500px;
+  border-radius: 20%;
+}
+
+.titulo-principal-color{
+color: #4c9657;
+font-weight: bold;
+font-size: 30px !important;
+}
+
+.titulos-pq{
+  color: #4c9657 !important;
+  font-weight: bold !important;
+  font-size: 30px !important;
+  font-family:'Poppins', sans-serif !important;
+}
+
+.paragrafos-pq{
+  font-family:'Poppins', sans-serif !important
+}
+
+.texto-principal-pq{
+  color: #000000;
+  font-size: 30px;
+  font-family:'Poppins', sans-serif !important
+
+}

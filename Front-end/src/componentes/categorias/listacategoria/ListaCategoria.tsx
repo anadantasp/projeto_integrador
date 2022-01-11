@@ -3,18 +3,31 @@ import { Link } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import Categoria from '../../../models/Categoria';
 import './ListaCategoria.css';
-import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom';
 import { busca } from '../../../services/Service';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaCategoria() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     let history = useHistory();
 
     useEffect(() => {
         if (token == '') {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "light",
+                progress: undefined,
+            })
             history.push("/login")
         }
     }, [token])
@@ -41,7 +54,7 @@ function ListaCategoria() {
                         <Card variant="outlined">
                             <CardContent>
                                 <Typography color="textSecondary" gutterBottom>
-                                    Categoria
+                                    {categoria.categoria}
                                 </Typography>
                                 <Typography variant="h5" component="h2">
                                     {categoria.descricao}

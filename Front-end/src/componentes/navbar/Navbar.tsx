@@ -1,13 +1,17 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Box, Grid } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Box, Grid, Badge } from '@material-ui/core';
 import { createStyles, makeStyles, Theme, MuiThemeProvider, createTheme, alpha } from '@material-ui/core/styles'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { Link, useHistory } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import './Navbar.css'
 import './Search'
 import Search from "./Search";
-
+import { toast } from 'react-toastify';
+import MenuComponent from "../menu/MenuComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../store/tokens/tokensReducer";
+import { addToken } from "../../store/tokens/action";
+import MenuAdm from "../menu/MenuAdm";
 
 
 
@@ -15,15 +19,15 @@ const useStyles = makeStyles(() =>
     createStyles({
 
         customizeToolbar: {
-            minHeight: 36
-
+            minHeight: 36,
+            justifyContent: 'center',
         },
         title: {
             flexGrow: 1,
             textAlign: "center",
             marginLeft: '75px',
             marginRight: '75px',
-
+            textDecoration: 'none'
 
         },
         title2: {
@@ -31,25 +35,20 @@ const useStyles = makeStyles(() =>
             textAlign: "center",
             marginLeft: '5px',
             marginRight: '5px',
-            cursor: 'pointer'
-
+            cursor: 'pointer',
         },
         appbar: {
             alignItems: 'center',
-            marginTop: '130px',
-            boxShadow: 'none',
+            marginTop: '210px',
             backgroundColor: '#C9E265'
         },
-
         appbarColor: {
-            backgroundColor: '#C9E265'
+            backgroundColor: '#C9E265',
+            boxShadow: 'none',
         },
-
         barra: {
             align: 'center',
             textAlign: 'center'
-
-
         },
         box: {
             marginRight: 'auto',
@@ -57,7 +56,7 @@ const useStyles = makeStyles(() =>
             width: '500px'
         },
         Margemtop: {
-            marginTop: '14rem'
+            marginTop: '10rem'
         }
     })
 );
@@ -66,80 +65,108 @@ const useStyles = makeStyles(() =>
 export function Navbar() {
     const classes = useStyles();
 
-    let history = useHistory(); // para redireccionar
-    const [token, setToken] = useLocalStorage('token'); // para guardar el token en el localstorage
-    function logout() {
-        setToken(''); // para apagar el token del localstorage
-        history.push('/login'); // para redireccionar a la pagina de login
+    let history = useHistory(); // para redirecionar
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+    const dispatch = useDispatch();
+    
+    const tipo = useSelector<TokenState, TokenState["tipos"]>(
+        (state) => state.tipos
+    );
+
+    var opcaoAdmin
+    if (tipo == "Admin") {
+        opcaoAdmin = <MenuAdm/>
     }
 
-    return (
-        <>
-            <Grid container direction='column' className={classes.Margemtop} justifyContent='flex-start' alignItems='flex-start'>
-                <Grid item alignItems='center' xs={6}>
-                    <Box>
-                        <AppBar position='absolute' className={classes.appbarColor} >
-                            <Toolbar variant='dense'  >
-                                <Box display='flex' >
-                                    <Box>
-                                        <img src="https://i.imgur.com/ljg0ZMX.png" alt="logo" height='155px' width='155px' />
-                                    </Box>
-                                    <Box display='flex' className='login'>
+        function logout() {
+        dispatch(addToken('')); // para apagar token do localstorage
+        toast.info('usuario deslogado', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: 'light',
+        })
+        history.push('/login'); // para redirecionar a pagina de login
+    }
 
-                                        <Typography variant="h6" color="initial" className={classes.title2} onClick={() => logout()}>Logout</Typography>
+    var navbarComponent;
 
-                                        <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank" className={classes.title2}>
-                                            <ShoppingCartIcon className=" redes" />
-                                        </a>
-                                    </Box>
-                                </Box>
+    if(token != ""){
+        navbarComponent = <Grid container direction='column' justifyContent='flex-start' alignItems='flex-start'>
+        <Grid alignItems='center' xs={6}>
+            <Box className={classes.Margemtop}>
+                
+                <AppBar position='absolute' className={classes.appbarColor} >
+                    <Toolbar variant='dense'  >
+                        <Box display='flex' >
+                            <img src="https://i.imgur.com/kSloteU.png" alt="logo" height='18px' width='100%' />
 
-                            </Toolbar>
-                            <Box className={classes.box}>
-                                <Search />
+                            <Box display='flex' className='login'>
+                                <Typography variant="h6" color="initial" className={classes.title2} onClick={() => logout()}>Logout</Typography>
+                                <Link to="/carrinho" className='title-nav'>
+                                    <Badge badgeContent={2} color="primary">
+                                    <ShoppingCartIcon className=" carrinho" />
+                                    </Badge>
+                                </Link>
                             </Box>
+                        </Box>
+                    </Toolbar>
 
-
-                        </AppBar>
-
+                    <Box className={classes.box}>
+                        <Search />
                     </Box>
-                </Grid>
 
-                <Grid item alignItems='center' xs={6}>
-                    <AppBar position='absolute' className={classes.appbar}>
+                    <Box >
                         <Toolbar variant='dense' className={classes.customizeToolbar} >
-                            <Box display='flex' justifyContent='space-around'>
+                            <Box display='flex' >
                                 <div>
-                                    <Link to="/home">
+                                    <Link to="/home" className='title-nav'>
                                         <Box mx={1}>
                                             <Typography variant="h6" color="initial" className={classes.title}>Home</Typography>
                                         </Box>
                                     </Link>
                                 </div>
                                 <div>
-                                    <Link to="/categorias">
-                                        <Box mx={1}>
-                                            <Typography variant="h6" color="initial" className={classes.title}>Categorias</Typography>
-                                        </Box>
-                                    </Link>
+                                    <MenuComponent/>
                                 </div>
                                 <div>
-                                    <Link to="/produtos">
+                                    <Link to="/produtos" className='title-nav'>
                                         <Box mx={1}>
                                             <Typography variant="h6" color="initial" className={classes.title}>Produtos</Typography>
                                         </Box>
                                     </Link>
                                 </div>
                                 <div>
+                                    {opcaoAdmin}
+                                </div>
+                                
+                                
+                                
+                                <div>
+                                        <Link to="/sobreNos" className='title-nav'>
                                     <Box mx={1}>
                                         <Typography variant="h6" color="initial" className={classes.title}>Sobre Nós</Typography>
                                     </Box>
+                                        </Link>
                                 </div>
                             </Box>
                         </Toolbar>
-                    </AppBar>
-                </Grid>
-            </Grid>
+                    </Box>
+                </AppBar>
+
+            </Box>
+        </Grid>
+    </Grid>
+    }
+    
+    return (
+        <>
+            {navbarComponent}
         </>
     )
 }
