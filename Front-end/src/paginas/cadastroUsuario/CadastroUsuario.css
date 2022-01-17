@@ -1,76 +1,80 @@
 .box-cadastro {
-    margin-top: -15px;
+    margin-top: 15px;
   }
 
-  .button{
-    height: 32px;
+  .button-cadastro{
+    height: 40px !important;
     color: white !important;
     font-weight: bold !important;
+    box-shadow: none !important;
+    width: 50% !important;
     background: linear-gradient(
       90deg,
       rgba(119, 169, 109, 1) 0%,
       rgb(106, 170, 46) 100%
     );
+    border-radius: 8px !important;
   }
 
-  .button:hover {
+  .button-cadastro:hover {
     background: linear-gradient(
       90deg,
       rgba(119, 169, 109, 1) 0%,
       rgb(106, 170, 46) 100%
     );
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)!important;
     transition: 0.3s ease-out !important;
   }
 
-  .img-cadastro{
-    width: 250px;
-    height: 85px;
-    margin-top: -10px;
-    align-items: center;
+  .box-img-cadastro {
+    display: grid;
+    justify-items: center;
+    align-content: center;
   }
 
   .container {
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-image: url("https://i.imgur.com/VZ0Zq7o.png%22");
+    background-image: url(https://i.imgur.com/VZ0Zq7o.png%22);
     background-repeat: no-repeat;
-    background-size: 100%;
     background-position: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
 }
 
 .paperStyle 
-/* caixa branca */ { 
-  padding: 30px;
-  margin:auto;
+/* caixa branca */ {
+  display: grid;
+  padding: 40px;
+  margin: auto;
   text-align: center;
-  width: 60vh;
-  height: 90vh;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px !important;
+  width: 30%;
+  height: 70%;
+  border-radius: 15px !important
 }
 
-.box-info {
-  margin-top: 25px;
-}
-
-.loginText:hover {
-  color: rgb(23, 209, 23);
-  transition: 250ms ease-out;
-
-}
-
-  .login-link-login
+  .link-login
   {
-    color: rgb(23, 209, 23) !important;
-    transition: 0.3s ease-out !important;
+    color: #82C34E;
+    font-size: 15px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 900 !important;
+    text-decoration: none;
     margin-left: 3px;
     font-style: italic;
 
+  }
+
+  .link-login:hover {
+    color: #659841 !important;
+    transition: 0.3s ease-out !important;
+  
+  }
+
+  .font {
+    font-size: 15px !important;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif !important; 
   }

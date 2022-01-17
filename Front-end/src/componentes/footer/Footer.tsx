@@ -23,10 +23,8 @@ function Footer() {
         <Grid alignItems="center" item xs={12}>
             <Box className='box1'>
                 <Box display="flex" alignItems="center" justifyContent="center" >
-                    <Box className='logo' marginRight="auto" paddingX={3} >
-                        <img src="https://i.imgur.com/ljg0ZMX.png" alt="logo" width='155px' height='155px' />
-                    </Box>
-                    <Box className='redessociais' marginLeft="auto" marginBottom="auto" paddingX={3} paddingTop={5}>
+                    
+                    <Box className='redessociais' marginLeft="auto" marginBottom="auto" paddingX={3} paddingTop={2}>
                         <a href="https://www.instagram.com/anadantasp/" target="_blank">
                             <InstagramIcon fontSize="large" className='redes-sociais' />
                         </a>

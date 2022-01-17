@@ -36,7 +36,7 @@ const Container = styled.div`
     border-radius: 20px;
     border-style: solid;
     border-width: 2px;
-    border-color: grey;
+    border-color: #96BE8C;
     
 
     &:hover{

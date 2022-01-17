@@ -32,8 +32,8 @@ const CssTextField = styled(TextField)({
             boxShadow: '2px 2px 2px #70A25C',
         },
         '&.Mui-focused fieldset': {
-            borderColor: 'black',
-            boxShadow: '2px 2px black',
+            borderColor: '#70A25C',
+            boxShadow: 'none',
         },
     },
 });
@@ -111,10 +111,11 @@ function CadastroUsuario() {
     return (
         <Box className='container'>
             <Paper elevation={15} className='paperStyle'>
+                <Box className='box-img-cadastro'>
+                    <img src="https://i.imgur.com/xh6eNEB.png" width='60%' alt="logo" className='img-cadastro' />
+                </Box>
                 <form onSubmit={onSubmit}>
-                    <Box>
-                        <img src="https://i.imgur.com/0o25UkD.png" alt="logo" className='img-cadastro' />
-                    </Box>
+
                     <Box className='box-cadastro'>
                         <Typography variant='h5' align='center' className='loginText'>Cadastro</Typography>
                         <CssTextField value={user.nomeCompleto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='nomeCompleto'
@@ -126,16 +127,16 @@ function CadastroUsuario() {
                         <CssTextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarsenha' label='Confirmar Senha' variant='outlined'
                             type='password' name='confirmarsenha' margin='normal' fullWidth />
                     </Box>
-                    <Box className='box-info'>
-                        <Typography variant='subtitle1' gutterBottom align='center' className='font'> Já tem uma conta? Faça seu
-                            <Link to='/login' className='login-link-login'>
-                                Login
-                            </Link>
-                        </Typography>
-                        <Box marginTop={3} textAlign='center'>
-                            <Button type='submit' className='button' variant="contained" fullWidth>
+                    <Box>
+                        <Box marginTop={2} textAlign='center'>
+                            <Button type='submit' className='button-cadastro' variant="contained">
                                 Cadastrar
                             </Button>
+                            <Typography variant='subtitle1' gutterBottom align='center' className='font'> Já tem uma conta? Faça seu
+                                <Link to='/login' className='link-login'>
+                                    Login
+                                </Link>
+                            </Typography>
                         </Box>
                     </Box>
                 </form>

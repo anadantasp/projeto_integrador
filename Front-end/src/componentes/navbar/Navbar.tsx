@@ -56,7 +56,7 @@ const useStyles = makeStyles(() =>
             width: '500px'
         },
         Margemtop: {
-            marginTop: '10rem'
+            marginTop: '8rem'
         }
     })
 );
@@ -104,7 +104,7 @@ export function Navbar() {
                 <AppBar position='absolute' className={classes.appbarColor} >
                     <Toolbar variant='dense'  >
                         <Box display='flex' >
-                            <img src="https://i.imgur.com/kSloteU.png" alt="logo" height='18px' width='100%' />
+                                <img src="https://i.imgur.com/xh6eNEB.png" alt="logo"  width='200px' />
 
                             <Box display='flex' className='login'>
                                 <Typography variant="h6" color="initial" className={classes.title2} onClick={() => logout()}>Logout</Typography>

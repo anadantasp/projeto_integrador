@@ -34,12 +34,12 @@ function PorqueUsar() {
         }
     }, [token])
 
-        const paperStyle = {
+    const paperStyle = {
         paddinn: 20,
         height: "70vh",
         width: 420,
         margin: "45px auto",
-        backgroundColor: "#cbe170",
+        backgroundColor: "#96BE8C",
         borderRadius: "20px",
     };
 
@@ -82,7 +82,7 @@ function PorqueUsar() {
                 className="imagem-sustentabilidade-pq fundo-background-pq"
             ></Grid>
 
-            <Grid className="grid-4 margin-bottom" item xs={4}>
+            <Grid className="grid-4-pq margin-bottom" item xs={4}>
                 <Box paddingX={22}>
                     <img
                         className="icon-economico-pq"
