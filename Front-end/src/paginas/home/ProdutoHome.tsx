@@ -58,10 +58,8 @@ function ProductsHome() {
                 <Product item={item} key={item.id} />
             ))}
         </Container>
-        <Container2></Container2>
-            <Container2></Container2>
-            <Container2></Container2>
-                    </>
+        
+        </>
     )
 }
 

@@ -66,6 +66,7 @@ function CategoriaDetalhe() {
     display: center;
     flex: no-wrap;
     padding-left: 100px;
+    padding-top:20px;
     `;
     const Container = styled.div`
 padding: 20px;

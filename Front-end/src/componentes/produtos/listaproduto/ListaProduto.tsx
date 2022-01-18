@@ -46,16 +46,17 @@ function ListaPoduto() {
 
   return (
     <>
+    <div className='padding-top'>
       {
         produtos.map(produto => (
           <Box m={2} >
-            <Card variant="outlined">
+            <Card variant="outlined" className="box-produtos">
               <CardContent>
                 <Typography variant="h5" component="h2">
                   {produto.nome}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {produto.preco}
+                  Preço: {produto.preco} R$
                 </Typography>
                 <Typography variant="body2" component="p">
                   {produto.categoria?.descricao}
@@ -66,14 +67,14 @@ function ListaPoduto() {
 
                   <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                      <Button variant="contained" className="botao-atualizar" size='small' >
                         atualizar
                       </Button>
                     </Box>
                   </Link>
                   <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
+                      <Button variant="contained" className="botao-deletar" size='small' >
                         deletar
                       </Button>
                     </Box>
@@ -84,6 +85,7 @@ function ListaPoduto() {
           </Box>
         ))
       }
+      </div>
     </>)
 }
 

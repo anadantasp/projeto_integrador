@@ -1,3 +1,22 @@
 .text-decorator-none{
     text-decoration: none;
 }
+.padding-top{
+    padding-top: 35px;
+}
+.box-produtos2{
+background-color: #EDF5E1!important;
+}
+.botao-atualizar2{
+    font-family: 'Barlow Condensed', sans-serif!important;
+    background-color: #1d6b19!important;
+    color: #ffffff!important;
+    font-size: large!important;
+}
+
+.botao-deletar2{
+    font-family: 'Barlow Condensed', sans-serif!important;
+    background-color: rgb(161, 30, 30)!important;
+    color: #ffffff!important;
+    font-size: large!important;
+}

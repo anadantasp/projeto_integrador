@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+
+.texto-format{
+    cursor: pointer!important;
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 400!important;
+
+}

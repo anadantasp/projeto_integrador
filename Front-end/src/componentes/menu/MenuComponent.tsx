@@ -84,7 +84,7 @@ export default function MenuComponent() {
 
 
   return (
-    <div>
+    <>
       <Typography
         variant="h6"
         id="demo-positioned-button"
@@ -93,11 +93,13 @@ export default function MenuComponent() {
         onMouseEnter={handleClick}
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        className="texto-format"
       >
-        Categorias ˅
+        Categorias ⌵
       </Typography>
       <Menu
         id="demo-positioned-menu"
+        variant="selectedMenu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
         open={open}
@@ -105,11 +107,11 @@ export default function MenuComponent() {
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'center',
         }}
       >
         {categorias.map(categoria => (
@@ -128,6 +130,6 @@ export default function MenuComponent() {
         ))
         }
       </Menu>
-    </div>
+    </>
   );
 }

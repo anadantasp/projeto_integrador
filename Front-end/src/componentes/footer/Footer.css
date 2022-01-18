@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 .box1{
     background-color: #C9E265;
     height: 100%;
     width: 100%;
     
 }
-
 
 .box2{
     background-color: #C9E265;
@@ -40,8 +41,9 @@
 }
 
 .titulos{
-    font-weight: bold!important;
-    color: #595f40;
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 600!important;
+    color: #595f40!important;
 }
 
 .title {

@@ -161,7 +161,7 @@ function CadastroProduto() {
     <Container maxWidth="sm" className="topo">
       <form onSubmit={onSubmit}>
 
-        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro de produto</Typography>
         <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="nome" name="nome" variant="outlined" margin="normal" fullWidth />
         <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="preco" label="Preço" name="preco" variant="outlined" margin="normal" fullWidth />
         <TextField value={produto.dtfabricacao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="dtfabricacao" label="data de fabricação" name="dtfabricacao" variant="outlined" margin="normal" fullWidth />

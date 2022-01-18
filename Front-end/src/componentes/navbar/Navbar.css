@@ -1,7 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 .toolbar-height{
     min-height: 36!important;
+}
+.box-img-navbar{
+    display: grid;
+    margin-left: 5px;
+}
+.box-search{
+    display: flex;
+    justify-content: center;
+}
+.margin-right-navbar{
+    margin-right: 7px;
+}
+.margin-left-navbar{
+    margin-left: 7px;
 }
 
 .cor{
@@ -22,13 +36,16 @@
 }
 
 .fonte-texto-comum{
-font-family: 'Roboto', sans-serif;
-font-weight: 100;
+font-family: 'Roboto', sans-serif!important;
+font-weight: 300!important;
+cursor: pointer;
 }
 
 .fonte-texto-menu{
-font-family: 'Roboto', sans-serif;
-font-weight: 300;
+font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
+text-decoration: none!important;
+font-weight: 400!important;
+cursor: pointer;
 }
 
 .redes{
@@ -41,12 +58,14 @@ font-weight: 300;
     color: white;
 }
 
-.cor-navbar{
-    color: #FD811F!important;
-}
 
 .title-nav {
         text-decoration: none!important;
         color: white;
 
     }
+
+.text-navbar{
+    display: flex;
+    justify-content: center;
+}

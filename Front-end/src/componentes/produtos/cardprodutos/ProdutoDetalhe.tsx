@@ -186,7 +186,7 @@ font-weight: 500;
             <Title>{produto.nome}</Title>
             <Date>{produto.dtfabricacao}</Date>
             <Desc>{produto.descricao}</Desc>
-                        <Price>R$ {produto.preco}</Price>
+                <Price>R$ {produto.preco}</Price>
             <AddContainer>
                 <AmountContainer>
                     <Remove onClick={() => handleQuantidade("dec")}/>

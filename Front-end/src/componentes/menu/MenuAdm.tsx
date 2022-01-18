@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-
+import './MenuComponent.css';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { busca } from '../../services/Service';
 import Categoria from '../../models/Categoria';
 import { Typography, Box } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
-import { fontSize } from '@mui/system';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import { useSelector } from 'react-redux';
-import styled from '@emotion/styled/types/base';
+
 
 
 const useStyles = makeStyles(() =>
@@ -28,7 +25,8 @@ const useStyles = makeStyles(() =>
             textAlign: "center",
             marginLeft: '75px',
             marginRight: '75px',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            cursor: 'pointer'
 
         }
     })
@@ -74,7 +72,7 @@ export default function MenuAdm() {
         }
     }, [token])
 
-    
+
     var produtosAdmin
     var categoriasAdmin
     var formularioProduto
@@ -111,7 +109,7 @@ export default function MenuAdm() {
 
 
     return (
-        
+
 
         <div>
             <Typography
@@ -122,8 +120,9 @@ export default function MenuAdm() {
                 onMouseEnter={handleClick}
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
+                className="texto-format"
             >
-                Operações Admin ˅
+                | Operações Admin ⌵
             </Typography>
             <Menu
                 id="demo-positioned-menu"
@@ -141,12 +140,12 @@ export default function MenuAdm() {
                     horizontal: 'left',
                 }}
             >
-                
-                    <MenuItem className='MenuItem' onClick={handleClose}>{produtosAdmin}</MenuItem>
-                    <MenuItem className='MenuItem' onClick={handleClose}>{categoriasAdmin}</MenuItem>
-                    <MenuItem className='MenuItem' onClick={handleClose}>{formularioProduto}</MenuItem>
-                    <MenuItem className='MenuItem' onClick={handleClose}>{formularioCategoria}</MenuItem>
-                    
+
+                <MenuItem className='MenuItem1' onClick={handleClose}>{produtosAdmin}</MenuItem>
+                <MenuItem className='MenuItem1' onClick={handleClose}>{categoriasAdmin}</MenuItem>
+                <MenuItem className='MenuItem1' onClick={handleClose}>{formularioProduto}</MenuItem>
+                <MenuItem className='MenuItem1' onClick={handleClose}>{formularioCategoria}</MenuItem>
+
             </Menu>
         </div>
     );

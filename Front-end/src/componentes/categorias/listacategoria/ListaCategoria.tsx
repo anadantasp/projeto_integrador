@@ -48,10 +48,11 @@ function ListaCategoria() {
 
     return (
         <>
+            <div className='padding-top'>
             {
                 categorias.map(categoria => (
                     <Box m={2} >
-                        <Card variant="outlined">
+                        <Card variant="outlined" className='box-produtos2'>
                             <CardContent>
                                 <Typography color="textSecondary" gutterBottom>
                                     {categoria.categoria}
@@ -68,14 +69,14 @@ function ListaCategoria() {
 
                                     <Link to={`/formularioCategoria/${categoria.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                            <Button variant="contained" className="botao-atualizar2" size='small'  >
                                                 atualizar
                                             </Button>
                                         </Box>
                                     </Link>
                                     <Link to={`/deletarCategoria/${categoria.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
+                                            <Button variant="contained" size='small' className='botao-deletar2'>
                                                 deletar
                                             </Button>
                                         </Box>
@@ -86,6 +87,7 @@ function ListaCategoria() {
                     </Box>
                 ))
             }
+            </div>
         </>
     );
 }
