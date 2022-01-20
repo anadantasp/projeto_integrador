@@ -33,12 +33,12 @@
 
 ### Página inicial de cadastro ou login
 <p>
-<img alt="Pagina inicial login/cadastro"  src="./public/readme-dm/assets/pagina-login.png" width="400px">
+<img alt="Pagina inicial login/cadastro"  src="./Front-end/public/readme-dm/assets/pagina-login.png" width="400px">
 </p>
 
 ### Página principal do e-commerce.
 <p>
-<img alt="Página inicial e-commerce" src="./public/readme-dm/assets/pagina-inicial.png" width="400px">
+<img alt="Página inicial e-commerce" src="./Front-end/public/readme-dm/assets/pagina-inicial.png" width="400px">
 </p>
 
 ---
