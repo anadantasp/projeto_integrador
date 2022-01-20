@@ -33,7 +33,7 @@
 
 ### Página inicial de cadastro ou login
 <p>
-<img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/readme-dm/assets/pagina-login.png" width="400px">
+<img alt="Pagina inicial login/cadastro"  src="./public/readme-dm/assets/pagina-login.png" width="400px">
 </p>
 
 ### Página principal do e-commerce.
